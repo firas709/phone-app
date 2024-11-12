@@ -10,7 +10,7 @@
     </parent>
     <groupId>tn.firas</groupId>
     <artifactId>houri-phone</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.0</version>
     <name>houri-phone</name>
     <description>houri-phone</description>
     <url/>
