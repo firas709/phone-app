@@ -10,7 +10,7 @@ on:
 
 jobs:
   compile:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Compile project
     steps:
       - name: Checkout code
@@ -29,7 +29,7 @@ jobs:
           cd houri-phone
           ./mvnw clean compile
   unit-tests:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Unit tests
     steps:
       - name: Checkout code
@@ -48,7 +48,7 @@ jobs:
           cd houri-phone
           ./mvnw clean test
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     name: Build backend
     needs: [compile, unit-tests]
     steps:
@@ -70,7 +70,7 @@ jobs:
 
   build-image:
     name: Build Docker image
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: [build]
     steps:
       - name: Setup JDK
