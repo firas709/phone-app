@@ -20,8 +20,7 @@ jobs:
         id: extract_version
         run: |
           cd houri-phone-ui
-          VERSION=$(jq -r '.version' package.json)
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "VERSION=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
@@ -36,7 +35,7 @@ jobs:
           file: docker/frontend/Dockerfile
           push: true
           platforms: linux/amd64
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:latest,${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:${{ env.VERSION }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:latest,${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:${{ steps.extract_version.outputs.VERSION }}
 
 #  deploy:
 #    name: Deploy Frontend
