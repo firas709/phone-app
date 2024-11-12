@@ -2,8 +2,6 @@ name: BSN Frontend Pipeline
 
 on:
   push:
-    branches:
-      - ci/pipeline
     paths:
       - houri-phone-ui/**
       - docker/frontend/**

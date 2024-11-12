@@ -2,8 +2,6 @@ name: BSN Backend API Pipeline
 
 on:
   push:
-    branches:
-      - ci/pipeline
     paths:
       - houri-phone/**
       - docker/backend/**
