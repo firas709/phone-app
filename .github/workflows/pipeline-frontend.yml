@@ -21,12 +21,12 @@ jobs:
       - name: Extract project version
         id: extract_version
         run: |
-          cd houri-phone-ui
-          VERSION=$(jq -r '.version' package.json)
+          VERSION=$(jq -r '.version' houri-phone-ui/package.json)
           if [ -z "$VERSION" ]; then
             VERSION="latest"
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+      
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
