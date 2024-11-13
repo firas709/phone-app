@@ -32,13 +32,13 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v5
         with:
           context: houri-phone-ui  # This should point to the directory containing the Dockerfile
-          file: houri-phone-ui/Dockerfile
+          file: docker/frontend/Dockerfile
           push: true
           platforms: linux/amd64
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:1.0.0,${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-api:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:1.0.2,${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-api:latest
           build-args: |
             PROFILE=prod
             APP_VERSION=${{ env.VERSION }}
