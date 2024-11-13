@@ -18,7 +18,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy everything to work directory
-COPY ../../houri-phone-ui .
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Build the application
 RUN npm run build --prod
