@@ -34,8 +34,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: Dockerfile
+          context: houri-phone-ui
+          file: docker/frontend/Dockerfile
           push: true
           platforms: linux/amd64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:1.0.0,${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-api:latest
