@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: houri-phone-ui  # This should point to the directory containing the Dockerfile
-          file: docker/frontend/Dockerfile
+          file: Dockerfile
           push: true
           platforms: linux/amd64
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:1.0.0,${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-api:latest
