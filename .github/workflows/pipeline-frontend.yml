@@ -34,7 +34,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: houri-phone-ui
+          context: houri-phone-ui  # This should point to the directory containing the Dockerfile
           file: houri-phone-ui/Dockerfile
           push: true
           platforms: linux/amd64
