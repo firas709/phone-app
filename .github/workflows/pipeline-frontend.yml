@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - houri-phone-ui/**
-#      - docker/frontend/**
+      - docker/frontend/**
       - 'docker-compose.yml'
       - .github/workflows/*-frontend.yml
 
