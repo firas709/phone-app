@@ -30,8 +30,8 @@ RUN npm run build --prod
 # Use the official Nginx image
 FROM nginx:alpine
 
-# Copy Nginx configuration file to work directory
-COPY nginx.conf /etc/nginx/nginx.conf
+# Copy Nginx configuration file from houri-phone-ui to /etc/nginx in the container
+COPY ../../houri-phone-ui/nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build /app/dist/houri-phone-ui /usr/share/nginx/html
 
