@@ -12,7 +12,7 @@ RUN npm run build --prod
 
 FROM nginx:alpine
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY houri-phone-ui/nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build-stage /app/dist/houri-phone-ui /usr/share/nginx/html
 
