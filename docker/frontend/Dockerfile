@@ -1,4 +1,4 @@
-FROM node:20 AS build-stage
+FROM node:16 as build-stage
 
 WORKDIR /app
 
@@ -6,14 +6,14 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY ../../houri-phone-ui .
+COPY . .
 
 RUN npm run build --prod
 
 FROM nginx:alpine
 
-COPY ../../houri-phone-ui/nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=build-stage /app/dist/houri-phone-ui /usr/share/nginx/html
+COPY --from=build-stage /app/dist/book-network-ui /usr/share/nginx/html
 
 EXPOSE 80
