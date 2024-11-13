@@ -38,7 +38,7 @@ jobs:
           file: Dockerfile
           push: true
           platforms: linux/amd64
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:${{ env.VERSION }},${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-api:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-ui:1.0.0,${{ secrets.DOCKERHUB_USERNAME }}/houri-phone-api:latest
           build-args: |
             PROFILE=prod
             APP_VERSION=${{ env.VERSION }}
